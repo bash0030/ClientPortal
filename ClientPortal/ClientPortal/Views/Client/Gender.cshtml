@@ -1,0 +1,24 @@
+﻿
+@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('Gender');
+
+            toggleSubmitBtn($('#Gender').find(':selected').val() !== '0');
+
+            $('#Gender').change(function () {
+                toggleSubmitBtn($(this).find(':selected').val() !== '0');
+            });
+
+        });
+
+    </script>
+}

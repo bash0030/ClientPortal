@@ -1,0 +1,179 @@
+﻿
+@using ClientPortal.Helpers;
+@using Newtonsoft.Json;
+
+@model ClientPortal.Models.ClientInfo
+
+@{
+    SelectListItems selectListItems = new SelectListItems();
+
+    List<SelectListItem> GetOptions(List<SelectListItem> options, string value)
+    {
+        foreach (var opt in options)
+        {
+            opt.Selected = (opt.Value != null && opt.Value.Equals(value)) ? true : false;
+        }
+
+        return options;
+    }
+
+    string FormatDate(DateTime dateTime)
+    {
+        string month = (dateTime.Month < 10) ? "0" + dateTime.Month : dateTime.Month.ToString();
+        string day = (dateTime.Day < 10) ? "0" + dateTime.Day : dateTime.Day.ToString();
+
+        return dateTime.Year + "-" + month + "-" + day;
+    }
+}
+
+@using (Html.BeginForm("Submit", "Client", new { data = JsonConvert.SerializeObject(Model) }, FormMethod.Post, new { @class = "form-group mb-3", @id = "question_form" }))
+{
+    <div class="d-flex flex-column mt-5 review">
+        <div class="row mb-2">
+            <label for="Model.FirstName" class="col-sm-3">First Name</label>
+            @Html.TextBox("Model.FirstName", Model.FirstName, new { @class = "col form-control", @id = "FirstName" })
+        </div>
+
+        <div class="row mb-2">
+            <label for="Model.MiddleName" class="col-sm-3">Middle Name</label>
+            @Html.TextBox("Model.MiddleName", Model.MiddleName, new { @class = "col form-control", @id = "MiddleName" })
+        </div>
+
+        <div class="row mb-2">
+            <label for="Model.LasttName" class="col-sm-3">Last Name</label>
+            @Html.TextBox("Model.LasttName", Model.LastName, new { @class = "col form-control", @id = "LasttName" })
+        </div>
+
+        <div class="row mb-2">
+            <label for="Model.Aka1" class="col-sm-3">Alias 1</label>
+            @Html.TextBox("Model.Aka1", Model.Aka1, new { @class = "col form-control", @id = "Aka1" })
+        </div>
+
+        <div class="row mb-2">
+            <label for="Model.Aka2" class="col-sm-3">Alias 2</label>
+            @Html.TextBox("Model.Aka2", Model.Aka2, new { @class = "col form-control", @id = "Aka2" })
+        </div>
+
+        @{
+            var options = GetOptions(selectListItems.CitizenshipTypeOptions, Model.CitizenshipTypeID.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.CitizenshipTypeID" class="col-sm-3">Citizenship/Immigration Status</label>
+            @Html.DropDownList("Model.CitizenshipTypeID", options, new { @class = "col chosen-select form-control" })
+        </div>
+
+        @if (Model.AproximativeAge > 0) {
+            <div class="row mb-2">
+                <label for="Model.AproximativeAge" class="col-sm-3">Approximate Age</label>
+                @Html.TextBox("Model.AproximativeAge", Model.AproximativeAge, new { @class = "col form-control", @id = "AproximativeAge", @type = "number" })
+            </div>
+        } 
+        else {
+            <div class="row mb-2">
+                <label for="Model.DOB" class="col-sm-3">Date of Birth</label>
+                @Html.TextBox("Model.DOB", FormatDate(Model.DOB), new { @class = "col form-control date-picker", @id = "DOB", @type = "date" })
+            </div>
+        }
+
+        @{
+            options = GetOptions(selectListItems.IndigenousStatusOptions, Model.AboriginalIndicatorID.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.AboriginalIndicatorID" class="col-sm-3">Indigenous Status</label>
+            @Html.DropDownList("Model.AboriginalIndicatorID", options, new { @class = "col chosen-select form-control", @id = "AboriginalIndicatorID" })
+        </div>
+
+        @{
+            options = GetOptions(selectListItems.GenderOptions, Model.Gender.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.Gender" class="col-sm-3">Gender</label>
+            @Html.DropDownList("Model.Gender", options, new { @class = "col chosen-select form-control", @id = "Gender" })
+        </div>
+
+        @{
+            options = GetOptions(selectListItems.YesNo, Model.MedicAlertYN.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.MedicAlertYN" class="col-sm-3">Medic Alert</label>
+            @Html.DropDownList("Model.MedicAlertYN", options, new { @class = "col chosen-select form-control" })
+        </div>
+
+        @{
+            options = GetOptions(selectListItems.YesNo, Model.DisabilityYN.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.DisabilityYN" class="col-sm-3">Disability</label>
+            @Html.DropDownList("Model.DisabilityYN", options, new { @class = "col chosen-select form-control" })
+        </div>
+
+        @{
+            options = GetOptions(selectListItems.VeteranStatusOptions, Model.VeteranStateID.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.VeteranStateID" class="col-sm-3">Veteran Status</label>
+            @Html.DropDownList("Model.VeteranStateID", options, new { @class = "col chosen-select form-control", @id = "VeteranStateID" })
+        </div>
+
+        @{
+            options = GetOptions(selectListItems.CountryOptions, Model.CountryOfBirth.ToString());
+        }
+
+        <div class="row mb-2">
+            <label for="Model.CountryOfBirth" class="col-sm-3">Country of Birth</label>
+            @Html.DropDownList("Model.CountryOfBirth", options, new { @class = "col chosen-select form-control", @id = "CountryOfBirth" })
+        </div>
+
+        <div class="mt-3 row">
+            <div class="col d-flex flex-row justify-content-start">
+                @Html.ActionLink("CANCEL", "Index", "Home", null, new { @class = "btn hifis-secondary", @id = "cancelBtn" })
+            </div>
+            <div class="d-flex flex-row justify-content-end">
+                <input id="submitBtn" type="submit" value="SUBMIT" class="btn hifis-primary float-right" disabled />
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('Review');
+
+            function toggleSubmit() {
+                var canSubmit = $(`input[id$='FirstName']`).val() !== '' && $(`input[id$='LastName']`).val() !== '';
+                canSubmit = canSubmit && $('#CitizenshipTypeID').find(':selected').val() !== '0';
+                canSubmit = canSubmit && $('#AboriginalIndicatorID').find(':selected').val() !== '0';
+                canSubmit = canSubmit && $('#VeteranStateID').find(':selected').val() !== '0';
+                canSubmit = canSubmit && $('#CountryOfBirth').find(':selected').val() !== '0';
+                canSubmit = canSubmit && $('#Gender').find(':selected').val() !== '0';
+                canSubmit = canSubmit && ($('#DOB').val() !== '1/1/01 12:00:00 AM' || $('#AproximativeAge').val() > '0');
+
+                toggleSubmitBtn(canSubmit);
+            }
+
+            $('div[id$=chosen]').addClass('col');
+            $('div[id$=chosen]').css('padding', '0');
+
+            toggleSubmit();
+
+            $('input').keyup(function () {
+                toggleSubmit();
+            });
+
+            $('select').change(function () {
+                toggleSubmit();
+            });
+
+        });
+
+    </script>
+}

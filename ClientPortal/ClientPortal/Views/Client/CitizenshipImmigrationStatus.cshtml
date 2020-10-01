@@ -1,0 +1,24 @@
+﻿
+@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('CitizenshipImmigrationStatus');  
+
+            toggleSubmitBtn($('#CitizenshipTypeID').find(':selected').val() !== '0');
+
+            $('#CitizenshipTypeID').change(function () {
+                toggleSubmitBtn($(this).find(':selected').val() !== '0');
+            });
+
+        });
+
+    </script>
+}

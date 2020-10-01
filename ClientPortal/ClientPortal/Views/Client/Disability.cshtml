@@ -1,0 +1,30 @@
+﻿
+@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('Disability');
+
+            function toggleSubmit() {
+                var canSubmit = $(`input[name$='HasDisability']:checked`).val() === 'false' || $(`input[name$='HasDisability']:checked`).val() === 'true';
+
+                toggleSubmitBtn(canSubmit);
+            }
+
+            toggleSubmit();
+
+            $(`input[name$='HasDisability']`).click(function () {
+                toggleSubmit()
+            });
+
+        });
+
+    </script>
+}

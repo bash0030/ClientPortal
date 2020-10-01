@@ -1,0 +1,39 @@
+﻿@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('DateOfBirth');
+            
+            function toggleSubmit() {
+
+                var canSubmit = ($(`input[name$='UsedApproxAge']:checked`).val() === 'false' && $(`input[id$='DOB']`).val() !== '1/1/01 12:00:00 AM') || 
+                            ($(`input[name$='UsedApproxAge']:checked`).val() === 'true' && $(`input[id$='AproximativeAge']`).val() > 0);
+
+                toggleSubmitBtn(canSubmit);
+            }
+
+            toggleSubmit();
+            toggleQuestion(`input[name$='UsedApproxAge']:checked`, '2');
+            toggleQuestion(`input[name$='UsedApproxAge']:checked`, '1', 'false');
+
+            $(`input[name$='UsedApproxAge']`).click(function () {
+                toggleSubmit()
+                toggleQuestion(this, '2');
+                toggleQuestion(this, '1', 'false');
+            });
+
+            $('input').keyup(function() {
+                toggleSubmit()
+            });
+            
+        });
+
+    </script>
+}

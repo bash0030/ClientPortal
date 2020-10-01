@@ -1,0 +1,36 @@
+﻿@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('Aliases'); 
+
+            function toggleSubmit() {
+                var canSubmit = $(`input[name$='HasAka']:checked`).val() === 'false' || 
+                            ($(`input[name$='HasAka']:checked`).val() === 'true' && $(`input[id$='Aka1']`).val() !== '');
+
+                toggleSubmitBtn(canSubmit);
+            }
+
+            toggleSubmit();
+            toggleQuestion(`input[name$='HasAka']:checked`, '1');
+
+            $(`input[name$='HasAka']`).click(function () {
+                toggleSubmit()
+                toggleQuestion(this, '1');
+            });
+
+            $('input').keyup(function() {
+                toggleSubmit()
+            });
+
+        });
+
+    </script>
+}

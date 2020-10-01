@@ -1,0 +1,23 @@
+﻿@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+    
+        $(document).ready(function () {
+
+            setQuestionPosition('FullName');          
+
+            toggleSubmitBtn($(`input[id$='FirstName']`).val() !== '' && $(`input[id$='LastName']`).val() !== '');
+
+            $('input').keyup(function() {
+                toggleSubmitBtn($(`input[id$='FirstName']`).val() !== '' && $(`input[id$='LastName']`).val() !== '');
+            });
+
+        });
+
+    </script>
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a27b3fab-5e80-4647-8d93-6dbfb7f2f9ba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="HIFIS.CONTRACTS" />
+      <ReferencedAssembly AssemblyName="HIFIS.ENUMS" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://demo.hifis.ca/domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HIFIS.xsd" MetadataType="Schema" ID="75509f49-8bb5-471c-8737-4f02e99577f6" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HIFIS1.xsd" MetadataType="Schema" ID="5495055b-bab6-44e3-8a78-aec37ea58667" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HIFIS2.xsd" MetadataType="Schema" ID="40d02b84-e3d9-47a9-b0a9-cb44171e2d48" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="HIFIS3.xsd" MetadataType="Schema" ID="86e79bcc-0982-4b88-9518-91e6618f1894" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="HIFIS.disco" MetadataType="Disco" ID="db9f1e35-7e7b-432e-bba2-728d1dfc3749" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?disco" />
+    <MetadataFile FileName="AuthenticationService.wsdl" MetadataType="Wsdl" ID="4240dad1-7e12-4270-b500-8c5bce8e74e7" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?wsdl" />
+    <MetadataFile FileName="HIFIS4.xsd" MetadataType="Schema" ID="8da3f7a6-2b25-4b00-b763-b78fe18eed99" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HIFIS5.xsd" MetadataType="Schema" ID="5a95dd51-5965-4358-888e-1b57a938b6f7" SourceId="1" SourceUrl="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.AuthenticationService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

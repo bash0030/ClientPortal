@@ -1,0 +1,1286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" />
+  <xs:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetClientActivityLogList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="filters" nillable="true" type="q1:AuditFilter" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q2:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientActivityLogListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientActivityLogListResult" nillable="true" type="q3:ArrayOfAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppearance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q4:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppearanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetAppearanceResult" nillable="true" type="q5:ClientAppearance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAppearance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pAppearnce" nillable="true" type="q6:ClientAppearance" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q7:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAppearanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateAppearanceResult" nillable="true" type="q8:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListDistinguishingFeature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q9:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListDistinguishingFeatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListDistinguishingFeatureResult" nillable="true" type="q10:ArrayOfClientDistinguishingFeature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDistinguishingFeature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientDistinguishingFeatureID" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q11:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDistinguishingFeatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="RemoveDistinguishingFeatureResult" nillable="true" type="q12:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDistinguishingFeature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q13:ClientDistinguishingFeature" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q14:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDistinguishingFeatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="AddDistinguishingFeatureResult" nillable="true" type="q15:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q16:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetCountryResult" nillable="true" type="q17:ClientCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pClientCountry" nillable="true" type="q18:ClientCountry" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q19:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateCountryResult" nillable="true" type="q20:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pSearchString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q21:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListResult" nillable="true" type="q22:ArrayOfClientListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientSearchResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pSearchString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="length" type="xs:int" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q23:Authentication" />
+        <xs:element minOccurs="0" name="showHiddenClients" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientSearchResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientSearchResultsResult" nillable="true" type="q24:ClientPagedList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q25:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVitalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetVitalsResult" nillable="true" type="q26:ClientVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientVitalsHistoryList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q27:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientVitalsHistoryListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientVitalsHistoryListResult" nillable="true" type="q28:ArrayOfClientHistoryChange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReadOnlyVitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q29:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReadOnlyVitalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetReadOnlyVitalsResult" nillable="true" type="q30:ClientReadOnlyVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetROVFromFileNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fileNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q31:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetROVFromFileNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetROVFromFileNumberResult" nillable="true" type="q32:ClientReadOnlyVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetROVFromClientIDList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="clientIDs" nillable="true" type="q33:ArrayOfint" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q34:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetROVFromClientIDListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetROVFromClientIDListResult" nillable="true" type="q35:ArrayOfClientReadOnlyVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetROVByPersonID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q36:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetROVByPersonIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetROVByPersonIDResult" nillable="true" type="q37:ClientReadOnlyVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsMultipleClientsWithFileNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fileNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q38:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsMultipleClientsWithFileNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsMultipleClientsWithFileNumberResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListReadOnlyVitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pClientID" nillable="true" type="q39:ArrayOfint" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q40:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListReadOnlyVitalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListReadOnlyVitalsResult" nillable="true" type="q41:ArrayOfClientReadOnlyVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pVitals" nillable="true" type="q42:ClientVitals" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q43:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVitalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertVitalsResult" nillable="true" type="q44:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pVitals" nillable="true" type="q45:ClientVitals" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q46:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVitalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateVitalsResult" nillable="true" type="q47:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveVitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q48:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveVitalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="RemoveVitalsResult" nillable="true" type="q49:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckHousingValidity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q50:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckHousingValidityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="CheckHousingValidityResult" nillable="true" type="q51:ClientHousingHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientHousingHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q52:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientHousingHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientHousingHistoryResult" nillable="true" type="q53:ArrayOfClientHousingHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertHousingHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q54:ClientHousingHistory" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q55:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertHousingHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertHousingHistoryResult" nillable="true" type="q56:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientHousingDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q57:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientHousingDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientHousingDetailResult" nillable="true" type="q58:ClientHousingHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditClientHousingHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q59:ClientHousingHistory" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q60:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditClientHousingHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="EditClientHousingHistoryResult" nillable="true" type="q61:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientHousing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q62:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientHousingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="DeleteClientHousingResult" nillable="true" type="q63:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryAroundDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q64:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryAroundDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetHistoryAroundDateResult" nillable="true" type="q65:ClientHousingHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListClientHouses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q66:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListClientHousesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListClientHousesResult" nillable="true" type="q67:ClientAddressListContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientAddressID" type="xs:int" />
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q68:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientAddressResult" nillable="true" type="q69:ClientAddressDetailContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pAddressID" type="xs:int" />
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q70:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetAddressByIDResult" nillable="true" type="q71:ClientAddressDetailContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pAddressID" type="xs:int" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q72:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetAddressResult" nillable="true" type="q73:Address" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pWCF" nillable="true" type="q74:ClientAddressDetailContract" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q75:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateAddressResult" nillable="true" type="q76:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientAddressID" type="xs:int" />
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q77:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="RemoveAddressResult" nillable="true" type="q78:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCreateFamilyEligibility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cID" type="xs:int" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q79:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCreateFamilyEligibilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckCreateFamilyEligibilityResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckFamilyEligibility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cID" type="xs:int" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q80:Authentication" />
+        <xs:element minOccurs="0" name="groupID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckFamilyEligibilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckFamilyEligibilityResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditFamilyMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q81:FamilyMemberContract" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q82:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditFamilyMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="EditFamilyMemberResult" nillable="true" type="q83:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertNewMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q84:FamilyMemberContract" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q85:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertNewMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertNewMemberResult" nillable="true" type="q86:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="filter" nillable="true" type="q87:FamilyFilters" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q88:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetMemberResult" nillable="true" type="q89:FamilyMemberContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="filter" nillable="true" type="q90:FamilyFilters" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q91:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetFamilyHeaderResult" nillable="true" type="q92:GroupContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientsCurrentFamilyInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q93:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientsCurrentFamilyInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientsCurrentFamilyInfoResult" nillable="true" type="q94:FamilyMembersContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientFamily">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="filter" nillable="true" type="q95:FamilyFilters" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q96:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientFamilyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientFamilyResult" nillable="true" type="q97:FamilyMembersListContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientFamilies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="filter" nillable="true" type="q98:FamilyFilters" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q99:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientFamiliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientFamiliesResult" nillable="true" type="q100:ArrayOfFamilyMembersListContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPotentialFamilyMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pFamilyHeadID" type="xs:int" />
+        <xs:element minOccurs="0" name="pSearchString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q101:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPotentialFamilyMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="FindPotentialFamilyMembersResult" nillable="true" type="q102:PeopleSearchList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPotentialFamilies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pID" type="xs:int" />
+        <xs:element minOccurs="0" name="pSerachString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q103:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPotentialFamiliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="FindPotentialFamiliesResult" nillable="true" type="q104:FamilySearchList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pID" type="xs:int" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q105:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetFamilyMembersResult" nillable="true" type="q106:FamilyMembersContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pPeopleGroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="pID" type="xs:int" />
+        <xs:element minOccurs="0" name="pGroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q107:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetFamilyMemberResult" nillable="true" type="q108:ClientFamilyMemberContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewFamilyMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pGroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="pFamilyHeadID" type="xs:int" />
+        <xs:element minOccurs="0" name="pCurrentID" type="xs:int" />
+        <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q109:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewFamilyMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetNewFamilyMemberResult" nillable="true" type="q110:ClientFamilyMemberContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFamilyMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pWCF" nillable="true" type="q111:ClientFamilyMemberContract" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q112:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFamilyMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateFamilyMemberResult" nillable="true" type="q113:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFamily">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pID" type="xs:int" />
+        <xs:element minOccurs="0" name="section" nillable="true" type="xs:string" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q114:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFamilyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="CreateFamilyResult" nillable="true" type="q115:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerminateGroupMembership">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pGroupID" type="xs:int" />
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q116:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerminateGroupMembershipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="TerminateGroupMembershipResult" nillable="true" type="q117:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerminatePeopleGroupMembership">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pPeopleGroupID" type="xs:int" />
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q118:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerminatePeopleGroupMembershipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="TerminatePeopleGroupMembershipResult" nillable="true" type="q119:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientsInHouseholdFamilyMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pID" type="xs:int" />
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q120:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientsInHouseholdFamilyMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientsInHouseholdFamilyMembersResult" nillable="true" type="q121:FamilyMembersContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientWithFamily">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q122:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientWithFamilyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientWithFamilyResult" nillable="true" type="q123:ArrayOfClientVitals" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientMembersInHouseholdListClientIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personID" type="xs:int" />
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q124:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientMembersInHouseholdListClientIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientMembersInHouseholdListClientIDsResult" nillable="true" type="q125:ArrayOfListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientsInHouseholdFamilyMembersList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pID" type="xs:int" />
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q126:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientsInHouseholdFamilyMembersListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="ClientsInHouseholdFamilyMembersListResult" nillable="true" type="q127:ArrayOfListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyHeadsWithActiveConsentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q128:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFamilyHeadsWithActiveConsentListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetFamilyHeadsWithActiveConsentListResult" nillable="true" type="q129:ArrayOfClientListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peopleCarID" type="xs:int" />
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q130:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetVehicleResult" nillable="true" type="q131:Vehicle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="isPeopleVehicle" nillable="true" type="xs:boolean" />
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q132:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListVehicleResult" nillable="true" type="q133:VehiclesList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q134:Vehicle" />
+        <xs:element minOccurs="0" name="isPeopleVehicle" nillable="true" type="xs:boolean" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q135:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertVehicleResult" nillable="true" type="q136:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q137:Vehicle" />
+        <xs:element minOccurs="0" name="isPeopleVehicle" nillable="true" type="xs:boolean" />
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q138:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateVehicleResult" nillable="true" type="q139:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peopleCarID" type="xs:int" />
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q140:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="RemoveVehicleResult" nillable="true" type="q141:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListEmergencyContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchstring" nillable="true" type="xs:string" />
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q142:Authentication" />
+        <xs:element minOccurs="0" name="pCurrentClientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListEmergencyContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListEmergencyContactsResult" nillable="true" type="q143:ClientEmergencyContacts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveEmergencyContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupID" type="xs:int" />
+        <xs:element minOccurs="0" name="personID" type="xs:int" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q144:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveEmergencyContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="RemoveEmergencyContactResult" nillable="true" type="q145:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmergencyContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q146:ClientEmergencyContacts" />
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q147:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmergencyContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertEmergencyContactResult" nillable="true" type="q148:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeListClientEmergencyContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q149:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeListClientEmergencyContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GeListClientEmergencyContactsResult" nillable="true" type="q150:ClientEmergencyContacts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListEmergencyContactComments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientID" type="xs:int" />
+        <xs:element minOccurs="0" name="pContactID" type="xs:int" />
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q151:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListEmergencyContactCommentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetListEmergencyContactCommentsResult" nillable="true" type="q152:ClientEmergencyContacts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmergencyContactComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pClientGroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="pComment" nillable="true" type="xs:string" />
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q153:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmergencyContactCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertEmergencyContactCommentResult" nillable="true" type="q154:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmergencyContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupID" type="xs:int" />
+        <xs:element minOccurs="0" name="personID" type="xs:int" />
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q155:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmergencyContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetEmergencyContactResult" nillable="true" type="q156:ClientContactList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmergencyContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="wcf" nillable="true" type="q157:ClientContactList" />
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q158:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmergencyContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateEmergencyContactResult" nillable="true" type="q159:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSideMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="pParameters" nillable="true" type="q160:ArrayOfSideMenuParameter" />
+        <xs:element minOccurs="0" name="routURI" nillable="true" type="xs:string" />
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q161:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSideMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetSideMenuResult" nillable="true" type="q162:SideMenuListContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="comment" nillable="true" type="q163:Comment" />
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q164:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="AddCommentResult" nillable="true" type="q165:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="comment" nillable="true" type="q166:Comment" />
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q167:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateCommentResult" nillable="true" type="q168:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="commentID" type="xs:int" />
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q169:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="RemoveCommentResult" nillable="true" type="q170:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="commentID" type="xs:int" />
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q171:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetCommentResult" nillable="true" type="q172:Comment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentWithReplies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="commentID" type="xs:int" />
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q173:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentWithRepliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetCommentWithRepliesResult" nillable="true" type="q174:Comment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientVitalsCommentListWithReplies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q175:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientVitalsCommentListWithRepliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientVitalsCommentListWithRepliesResult" nillable="true" type="q176:ArrayOfComment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientVitalsCommentListMeta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q177:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientVitalsCommentListMetaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientVitalsCommentListMetaResult" nillable="true" type="q178:ArrayOfComment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentReplies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="commentID" type="xs:int" />
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q179:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentRepliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetCommentRepliesResult" nillable="true" type="q180:ArrayOfComment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientAttestation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q181:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientAttestationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="GetClientAttestationResult" nillable="true" type="q182:ClientAttestation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertClientAttestation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="attestation" nillable="true" type="q183:ClientAttestation" />
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q184:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertClientAttestationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="InsertClientAttestationResult" nillable="true" type="q185:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientAttestation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="attestation" nillable="true" type="q186:ClientAttestation" />
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q187:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientAttestationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="UpdateClientAttestationResult" nillable="true" type="q188:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmClientAttestation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="authentication" nillable="true" type="q189:Authentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmClientAttestationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" minOccurs="0" name="ConfirmClientAttestationResult" nillable="true" type="q190:WCFValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

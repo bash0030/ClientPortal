@@ -1,0 +1,157 @@
+﻿@using ClientPortal.Models;
+@using System.Reflection;
+
+@model ClientPortal.Models.QuestionModel
+
+@{
+    string model = "";
+    string value = "";
+    string required = "";
+    string label = "";
+    string type = "";
+    bool boolValue = false;
+    DateTime dateValue = new DateTime();
+
+    switch (ViewBag.Type)
+    {
+        case "textbox":
+
+            model = "Model.ClientInfo." + ViewBag.Model[0];
+            value = Model.ClientInfo.GetType().GetProperty(ViewBag.Model[0]).GetValue(Model.ClientInfo, null).ToString();
+            boolValue = (ViewBag.Required != null) ? ViewBag.Required[0] : false;
+            required = (boolValue) ? "required" : "";
+            label = model;
+            type = (ViewBag.InputType != null) ? ViewBag.InputType[0] : "text";
+
+            @Html.ValidationMessage(model, "", new { @class = "text-danger" })
+            <br />
+            @Html.TextBox(model, value, new { @class = "form-control", @id = ViewBag.Model[0], @type = type })
+
+            <small>
+                <label class="@required" for="@label">@ViewBag.Label[0]</label>
+
+                @if (ViewBag.Tooltip != null && ViewBag.Tooltip[0] != null)
+                {
+                    <i class="fa fa-question-circle tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="@ViewBag.Tooltip[0]"></i>
+                }
+            </small>
+
+            break;
+
+        case "multi-textbox":
+
+            if (ViewBag.Model != null)
+            {
+                <div class="row">
+                    @for (int i = 0; i < ViewBag.Model.Length; ++i)
+                    {
+                        model = "Model.ClientInfo." + ViewBag.Model[i];
+                        value = Model.ClientInfo.GetType().GetProperty(ViewBag.Model[i]).GetValue(Model.ClientInfo, null);
+                        boolValue = (ViewBag.Required != null) ? ViewBag.Required[i] : false;
+                        required = (boolValue) ? "required" : "";
+                        label = model;
+                        type = (ViewBag.InputType != null) ? ViewBag.InputType[i] : "text";
+
+                        <div class="col">
+                            @Html.ValidationMessage(model, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.TextBox(model, value, new { @class = "form-control", @id = ViewBag.Model[i], @type = type })
+
+                            <small>
+                                <label class="@required" for="@label">@ViewBag.Label[i]</label>
+
+                                @if (ViewBag.Tooltip != null && ViewBag.Tooltip[i] != null)
+                                {
+                                    <i class="fa fa-question-circle tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="@ViewBag.Tooltip[i]"></i>
+                                }
+                            </small>
+                        </div>
+                    }
+                </div>
+            }
+            break;
+
+        case "radio":
+
+            if (ViewBag.Options != null)
+            {
+                foreach (SelectListItem option in ViewBag.Options)
+                {
+                    model = "Model.ClientInfo." + ViewBag.Model[0];
+                    boolValue = (bool)Model.ClientInfo.GetType().GetProperty(ViewBag.Model[0]).GetValue(Model.ClientInfo, null);
+
+                    <div class="form-check form-check-inline mr-5">
+                        @if (boolValue && boolValue == bool.Parse(option.Value))
+                        {
+                            @Html.RadioButton(model, option.Value, new { @id = option.Text, @checked = "checked", @class = "form-check-input" });
+                        }
+                        else
+                        {
+                            @Html.RadioButton(model, option.Value, new { @id = option.Text, @class = "form-check-input" });
+                        }
+                        <label class="form-check-label" for="@option.Text">@option.Text</label>
+                    </div>
+                }
+            }
+            break;
+
+        case "dropdown":
+
+            if (ViewBag.Options != null)
+            {
+                model = "Model.ClientInfo." + ViewBag.Model[0];
+                value = Model.ClientInfo.GetType().GetProperty(ViewBag.Model[0]).GetValue(Model.ClientInfo, null).ToString();
+                boolValue = (ViewBag.Required != null) ? ViewBag.Required[0] : false;
+                required = (boolValue) ? "required" : "";
+                label = model;
+
+                @Html.ValidationMessage(model, "", new { @class = "text-danger" })
+
+                foreach (var option in ViewBag.Options)
+                {
+                    option.Selected = (option.Value != null && option.Value.Equals(value)) ? true : false;
+                }
+
+                @Html.DropDownList(model, (List<SelectListItem>)ViewBag.Options, new { @class = "chosen-select form-control", @id = ViewBag.Model[0] })
+
+                <br>
+
+                <small>
+                    <label class="@required" for="@label">@ViewBag.Label[0]</label>
+
+                    @if (ViewBag.Tooltip != null && ViewBag.Tooltip[0] != null)
+                    {
+                        <i class="fa fa-question-circle tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="@ViewBag.Tooltip[0]"></i>
+                    }
+                </small>
+            }
+
+            break;
+
+        case "date":
+
+            model = "Model.ClientInfo." + ViewBag.Model[0];
+            dateValue = Model.ClientInfo.GetType().GetProperty(ViewBag.Model[0]).GetValue(Model.ClientInfo, null);
+            boolValue = (ViewBag.Required != null) ? ViewBag.Required[0] : false;
+            required = (boolValue) ? "required" : "";
+            label = model;
+
+            @Html.ValidationMessage(model, "", new { @class = "text-danger" })
+            <br />
+            @Html.TextBox(model, dateValue, new { @class = "form-control date-picker", @id = ViewBag.Model[0], @type = "date" })
+
+            <small>
+                <label class="@required" for="@label">@ViewBag.Label[0]</label>
+
+                @if (ViewBag.Tooltip != null && ViewBag.Tooltip[0] != null)
+                {
+                    <i class="fa fa-question-circle tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="@ViewBag.Tooltip[0]"></i>
+                }
+            </small>
+
+            break;
+
+        default:
+            break;
+    }
+}

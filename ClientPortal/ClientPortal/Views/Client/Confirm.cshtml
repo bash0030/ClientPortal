@@ -1,0 +1,17 @@
+﻿<div class="d-flex flex-column justify-content-center question text-center">
+    <p class="h5">
+        @if (ViewBag.Success)
+        {
+            <i class="fa fa-check-circle"></i>
+            <span>&nbsp;Thanks for using the HIFIS Client Portal, your information has been submitted successfully</span>
+        }
+        else
+        {
+            <i class="fa fa-times-circle"></i>
+            <span>
+                &nbsp;Thanks for using the HIFIS Client Portal, unfortunately there was an error while uploading your information.
+                <br /> Please try again later.
+            </span>
+        }
+    </p>
+</div>

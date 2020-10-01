@@ -1,0 +1,40 @@
+﻿@model ClientPortal.Models.QuestionModel
+
+@{
+    Html.RenderPartial("_QuestionComponent", Model);
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setQuestionPosition('IndigenousStatus');
+
+            function toggleSubmit() {
+                var canSubmit = $(`input[name$='IsIndigenous']:checked`).val() === 'false' || 
+                            ($(`input[name$='IsIndigenous']:checked`).val() === 'true' && $('#AboriginalIndicatorID').find(':selected').val() !== '0');
+
+                toggleSubmitBtn(canSubmit);
+            }
+
+            toggleSubmit();
+            toggleQuestion(`input[name$='IsIndigenous']:checked`, '1');
+
+            $(`input[name$='IsIndigenous']`).click(function () {
+                toggleSubmit()
+                toggleQuestion(this, '1');
+            });
+
+            $('input').keyup(function() {
+                toggleSubmit()
+            });
+
+            $('#AboriginalIndicatorID').change(function () {
+                toggleSubmit();
+            });
+            
+        });
+
+    </script>
+}

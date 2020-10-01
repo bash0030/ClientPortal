@@ -1,0 +1,1632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IClientService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HIFIS.CONTRACTS.WCFContracts.DataContracts" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HIFIS.ENUMS.CommonClasses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientService_GetClientActivityLogList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientActivityLogList" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientActivityLogList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientActivityLogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAppearance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppearance" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAppearance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppearanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateAppearance_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAppearance" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateAppearance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAppearanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListDistinguishingFeature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListDistinguishingFeature" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListDistinguishingFeature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListDistinguishingFeatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveDistinguishingFeature_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveDistinguishingFeature" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveDistinguishingFeature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveDistinguishingFeatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddDistinguishingFeature_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDistinguishingFeature" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddDistinguishingFeature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDistinguishingFeatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountry" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientSearchResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientSearchResults" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientSearchResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientSearchResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetVitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVitals" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetVitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVitalsHistoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVitalsHistoryList" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVitalsHistoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVitalsHistoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetReadOnlyVitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadOnlyVitals" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetReadOnlyVitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadOnlyVitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetROVFromFileNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetROVFromFileNumber" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetROVFromFileNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetROVFromFileNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetROVFromClientIDList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetROVFromClientIDList" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetROVFromClientIDList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetROVFromClientIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetROVByPersonID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetROVByPersonID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetROVByPersonID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetROVByPersonIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_IsMultipleClientsWithFileNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsMultipleClientsWithFileNumber" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_IsMultipleClientsWithFileNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsMultipleClientsWithFileNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListReadOnlyVitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListReadOnlyVitals" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListReadOnlyVitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListReadOnlyVitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertVitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVitals" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertVitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateVitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVitals" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateVitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveVitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveVitals" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveVitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveVitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CheckHousingValidity_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckHousingValidity" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CheckHousingValidity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckHousingValidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientHousingHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientHousingHistory" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientHousingHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientHousingHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertHousingHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHousingHistory" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertHousingHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHousingHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientHousingDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientHousingDetail" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientHousingDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientHousingDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_EditClientHousingHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditClientHousingHistory" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_EditClientHousingHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditClientHousingHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteClientHousing_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientHousing" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteClientHousing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientHousingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetHistoryAroundDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryAroundDate" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetHistoryAroundDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryAroundDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListClientHouses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListClientHouses" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListClientHouses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListClientHousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientAddress" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAddressByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAddressByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAddress" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CheckCreateFamilyEligibility_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCreateFamilyEligibility" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CheckCreateFamilyEligibility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCreateFamilyEligibilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CheckFamilyEligibility_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFamilyEligibility" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CheckFamilyEligibility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFamilyEligibilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_EditFamilyMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditFamilyMember" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_EditFamilyMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditFamilyMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertNewMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewMember" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertNewMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMember" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyHeader" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsCurrentFamilyInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsCurrentFamilyInfo" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsCurrentFamilyInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsCurrentFamilyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientFamily_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientFamily" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientFamily_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientFamilies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientFamilies" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientFamilies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientFamiliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_FindPotentialFamilyMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPotentialFamilyMembers" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_FindPotentialFamilyMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPotentialFamilyMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_FindPotentialFamilies_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPotentialFamilies" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_FindPotentialFamilies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPotentialFamiliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyMembers" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyMember" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetNewFamilyMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewFamilyMember" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetNewFamilyMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewFamilyMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateFamilyMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFamilyMember" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateFamilyMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFamilyMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CreateFamily_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFamily" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_CreateFamily_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_TerminateGroupMembership_InputMessage">
+    <wsdl:part name="parameters" element="tns:TerminateGroupMembership" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_TerminateGroupMembership_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TerminateGroupMembershipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_TerminatePeopleGroupMembership_InputMessage">
+    <wsdl:part name="parameters" element="tns:TerminatePeopleGroupMembership" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_TerminatePeopleGroupMembership_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TerminatePeopleGroupMembershipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsInHouseholdFamilyMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsInHouseholdFamilyMembers" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsInHouseholdFamilyMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsInHouseholdFamilyMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientWithFamily_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientWithFamily" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientWithFamily_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientWithFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientMembersInHouseholdListClientIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientMembersInHouseholdListClientIDs" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientMembersInHouseholdListClientIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientMembersInHouseholdListClientIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ClientsInHouseholdFamilyMembersList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientsInHouseholdFamilyMembersList" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ClientsInHouseholdFamilyMembersList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientsInHouseholdFamilyMembersListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyHeadsWithActiveConsentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyHeadsWithActiveConsentList" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetFamilyHeadsWithActiveConsentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFamilyHeadsWithActiveConsentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListEmergencyContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListEmergencyContacts" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListEmergencyContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListEmergencyContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveEmergencyContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEmergencyContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveEmergencyContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEmergencyContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertEmergencyContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmergencyContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertEmergencyContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmergencyContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GeListClientEmergencyContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeListClientEmergencyContacts" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GeListClientEmergencyContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeListClientEmergencyContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListEmergencyContactComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListEmergencyContactComments" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetListEmergencyContactComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListEmergencyContactCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertEmergencyContactComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmergencyContactComment" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertEmergencyContactComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmergencyContactCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetEmergencyContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmergencyContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetEmergencyContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmergencyContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateEmergencyContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmergencyContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateEmergencyContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmergencyContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetSideMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSideMenu" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetSideMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSideMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddComment" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateComment" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveComment" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_RemoveComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComment" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetCommentWithReplies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentWithReplies" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetCommentWithReplies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentWithRepliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVitalsCommentListWithReplies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVitalsCommentListWithReplies" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVitalsCommentListWithReplies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVitalsCommentListWithRepliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVitalsCommentListMeta_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVitalsCommentListMeta" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVitalsCommentListMeta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVitalsCommentListMetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetCommentReplies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentReplies" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetCommentReplies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentRepliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientAttestation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientAttestation" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientAttestation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientAttestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertClientAttestation_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClientAttestation" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_InsertClientAttestation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClientAttestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateClientAttestation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientAttestation" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateClientAttestation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientAttestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ConfirmClientAttestation_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmClientAttestation" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ConfirmClientAttestation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmClientAttestationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClientService">
+    <wsdl:operation name="GetClientActivityLogList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientActivityLogList" message="tns:IClientService_GetClientActivityLogList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientActivityLogListResponse" message="tns:IClientService_GetClientActivityLogList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppearance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetAppearance" message="tns:IClientService_GetAppearance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetAppearanceResponse" message="tns:IClientService_GetAppearance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppearance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateAppearance" message="tns:IClientService_UpdateAppearance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateAppearanceResponse" message="tns:IClientService_UpdateAppearance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDistinguishingFeature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetListDistinguishingFeature" message="tns:IClientService_GetListDistinguishingFeature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListDistinguishingFeatureResponse" message="tns:IClientService_GetListDistinguishingFeature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDistinguishingFeature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/RemoveDistinguishingFeature" message="tns:IClientService_RemoveDistinguishingFeature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/RemoveDistinguishingFeatureResponse" message="tns:IClientService_RemoveDistinguishingFeature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDistinguishingFeature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddDistinguishingFeature" message="tns:IClientService_AddDistinguishingFeature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddDistinguishingFeatureResponse" message="tns:IClientService_AddDistinguishingFeature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetCountry" message="tns:IClientService_GetCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetCountryResponse" message="tns:IClientService_GetCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateCountry" message="tns:IClientService_UpdateCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateCountryResponse" message="tns:IClientService_UpdateCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetList" message="tns:IClientService_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListResponse" message="tns:IClientService_GetList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientSearchResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientSearchResults" message="tns:IClientService_GetClientSearchResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientSearchResultsResponse" message="tns:IClientService_GetClientSearchResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetVitals" message="tns:IClientService_GetVitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetVitalsResponse" message="tns:IClientService_GetVitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVitalsHistoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientVitalsHistoryList" message="tns:IClientService_GetClientVitalsHistoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientVitalsHistoryListResponse" message="tns:IClientService_GetClientVitalsHistoryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReadOnlyVitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetReadOnlyVitals" message="tns:IClientService_GetReadOnlyVitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetReadOnlyVitalsResponse" message="tns:IClientService_GetReadOnlyVitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetROVFromFileNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetROVFromFileNumber" message="tns:IClientService_GetROVFromFileNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetROVFromFileNumberResponse" message="tns:IClientService_GetROVFromFileNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetROVFromClientIDList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetROVFromClientIDList" message="tns:IClientService_GetROVFromClientIDList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetROVFromClientIDListResponse" message="tns:IClientService_GetROVFromClientIDList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetROVByPersonID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetROVByPersonID" message="tns:IClientService_GetROVByPersonID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetROVByPersonIDResponse" message="tns:IClientService_GetROVByPersonID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMultipleClientsWithFileNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/IsMultipleClientsWithFileNumber" message="tns:IClientService_IsMultipleClientsWithFileNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/IsMultipleClientsWithFileNumberResponse" message="tns:IClientService_IsMultipleClientsWithFileNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListReadOnlyVitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetListReadOnlyVitals" message="tns:IClientService_GetListReadOnlyVitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListReadOnlyVitalsResponse" message="tns:IClientService_GetListReadOnlyVitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertVitals" message="tns:IClientService_InsertVitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertVitalsResponse" message="tns:IClientService_InsertVitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateVitals" message="tns:IClientService_UpdateVitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateVitalsResponse" message="tns:IClientService_UpdateVitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/RemoveVitals" message="tns:IClientService_RemoveVitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/RemoveVitalsResponse" message="tns:IClientService_RemoveVitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckHousingValidity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/CheckHousingValidity" message="tns:IClientService_CheckHousingValidity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/CheckHousingValidityResponse" message="tns:IClientService_CheckHousingValidity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientHousingHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientHousingHistory" message="tns:IClientService_GetClientHousingHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientHousingHistoryResponse" message="tns:IClientService_GetClientHousingHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHousingHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertHousingHistory" message="tns:IClientService_InsertHousingHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertHousingHistoryResponse" message="tns:IClientService_InsertHousingHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientHousingDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientHousingDetail" message="tns:IClientService_GetClientHousingDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientHousingDetailResponse" message="tns:IClientService_GetClientHousingDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditClientHousingHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/EditClientHousingHistory" message="tns:IClientService_EditClientHousingHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/EditClientHousingHistoryResponse" message="tns:IClientService_EditClientHousingHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientHousing">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/DeleteClientHousing" message="tns:IClientService_DeleteClientHousing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/DeleteClientHousingResponse" message="tns:IClientService_DeleteClientHousing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryAroundDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetHistoryAroundDate" message="tns:IClientService_GetHistoryAroundDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetHistoryAroundDateResponse" message="tns:IClientService_GetHistoryAroundDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListClientHouses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetListClientHouses" message="tns:IClientService_GetListClientHouses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListClientHousesResponse" message="tns:IClientService_GetListClientHouses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientAddress" message="tns:IClientService_GetClientAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientAddressResponse" message="tns:IClientService_GetClientAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetAddressByID" message="tns:IClientService_GetAddressByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetAddressByIDResponse" message="tns:IClientService_GetAddressByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetAddress" message="tns:IClientService_GetAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetAddressResponse" message="tns:IClientService_GetAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateAddress" message="tns:IClientService_UpdateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateAddressResponse" message="tns:IClientService_UpdateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/RemoveAddress" message="tns:IClientService_RemoveAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/RemoveAddressResponse" message="tns:IClientService_RemoveAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCreateFamilyEligibility">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/CheckCreateFamilyEligibility" message="tns:IClientService_CheckCreateFamilyEligibility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/CheckCreateFamilyEligibilityResponse" message="tns:IClientService_CheckCreateFamilyEligibility_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFamilyEligibility">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/CheckFamilyEligibility" message="tns:IClientService_CheckFamilyEligibility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/CheckFamilyEligibilityResponse" message="tns:IClientService_CheckFamilyEligibility_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditFamilyMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/EditFamilyMember" message="tns:IClientService_EditFamilyMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/EditFamilyMemberResponse" message="tns:IClientService_EditFamilyMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertNewMember" message="tns:IClientService_InsertNewMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertNewMemberResponse" message="tns:IClientService_InsertNewMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetMember" message="tns:IClientService_GetMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetMemberResponse" message="tns:IClientService_GetMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetFamilyHeader" message="tns:IClientService_GetFamilyHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetFamilyHeaderResponse" message="tns:IClientService_GetFamilyHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsCurrentFamilyInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientsCurrentFamilyInfo" message="tns:IClientService_GetClientsCurrentFamilyInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientsCurrentFamilyInfoResponse" message="tns:IClientService_GetClientsCurrentFamilyInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientFamily">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientFamily" message="tns:IClientService_GetClientFamily_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientFamilyResponse" message="tns:IClientService_GetClientFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientFamilies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientFamilies" message="tns:IClientService_GetClientFamilies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientFamiliesResponse" message="tns:IClientService_GetClientFamilies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPotentialFamilyMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/FindPotentialFamilyMembers" message="tns:IClientService_FindPotentialFamilyMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/FindPotentialFamilyMembersResponse" message="tns:IClientService_FindPotentialFamilyMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPotentialFamilies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/FindPotentialFamilies" message="tns:IClientService_FindPotentialFamilies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/FindPotentialFamiliesResponse" message="tns:IClientService_FindPotentialFamilies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetFamilyMembers" message="tns:IClientService_GetFamilyMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetFamilyMembersResponse" message="tns:IClientService_GetFamilyMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetFamilyMember" message="tns:IClientService_GetFamilyMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetFamilyMemberResponse" message="tns:IClientService_GetFamilyMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewFamilyMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetNewFamilyMember" message="tns:IClientService_GetNewFamilyMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetNewFamilyMemberResponse" message="tns:IClientService_GetNewFamilyMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFamilyMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateFamilyMember" message="tns:IClientService_UpdateFamilyMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateFamilyMemberResponse" message="tns:IClientService_UpdateFamilyMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFamily">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/CreateFamily" message="tns:IClientService_CreateFamily_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/CreateFamilyResponse" message="tns:IClientService_CreateFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminateGroupMembership">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/TerminateGroupMembership" message="tns:IClientService_TerminateGroupMembership_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/TerminateGroupMembershipResponse" message="tns:IClientService_TerminateGroupMembership_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminatePeopleGroupMembership">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/TerminatePeopleGroupMembership" message="tns:IClientService_TerminatePeopleGroupMembership_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/TerminatePeopleGroupMembershipResponse" message="tns:IClientService_TerminatePeopleGroupMembership_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsInHouseholdFamilyMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientsInHouseholdFamilyMembers" message="tns:IClientService_GetClientsInHouseholdFamilyMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientsInHouseholdFamilyMembersResponse" message="tns:IClientService_GetClientsInHouseholdFamilyMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientWithFamily">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientWithFamily" message="tns:IClientService_GetClientWithFamily_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientWithFamilyResponse" message="tns:IClientService_GetClientWithFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientMembersInHouseholdListClientIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientMembersInHouseholdListClientIDs" message="tns:IClientService_GetClientMembersInHouseholdListClientIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientMembersInHouseholdListClientIDsResponse" message="tns:IClientService_GetClientMembersInHouseholdListClientIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientsInHouseholdFamilyMembersList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/ClientsInHouseholdFamilyMembersList" message="tns:IClientService_ClientsInHouseholdFamilyMembersList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/ClientsInHouseholdFamilyMembersListResponse" message="tns:IClientService_ClientsInHouseholdFamilyMembersList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyHeadsWithActiveConsentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetFamilyHeadsWithActiveConsentList" message="tns:IClientService_GetFamilyHeadsWithActiveConsentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetFamilyHeadsWithActiveConsentListResponse" message="tns:IClientService_GetFamilyHeadsWithActiveConsentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetVehicle" message="tns:IClientService_GetVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetVehicleResponse" message="tns:IClientService_GetVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetListVehicle" message="tns:IClientService_GetListVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListVehicleResponse" message="tns:IClientService_GetListVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertVehicle" message="tns:IClientService_InsertVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertVehicleResponse" message="tns:IClientService_InsertVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateVehicle" message="tns:IClientService_UpdateVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateVehicleResponse" message="tns:IClientService_UpdateVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/RemoveVehicle" message="tns:IClientService_RemoveVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/RemoveVehicleResponse" message="tns:IClientService_RemoveVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListEmergencyContacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetListEmergencyContacts" message="tns:IClientService_GetListEmergencyContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListEmergencyContactsResponse" message="tns:IClientService_GetListEmergencyContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEmergencyContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/RemoveEmergencyContact" message="tns:IClientService_RemoveEmergencyContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/RemoveEmergencyContactResponse" message="tns:IClientService_RemoveEmergencyContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmergencyContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertEmergencyContact" message="tns:IClientService_InsertEmergencyContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertEmergencyContactResponse" message="tns:IClientService_InsertEmergencyContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeListClientEmergencyContacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GeListClientEmergencyContacts" message="tns:IClientService_GeListClientEmergencyContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GeListClientEmergencyContactsResponse" message="tns:IClientService_GeListClientEmergencyContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListEmergencyContactComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetListEmergencyContactComments" message="tns:IClientService_GetListEmergencyContactComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetListEmergencyContactCommentsResponse" message="tns:IClientService_GetListEmergencyContactComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmergencyContactComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertEmergencyContactComment" message="tns:IClientService_InsertEmergencyContactComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertEmergencyContactCommentResponse" message="tns:IClientService_InsertEmergencyContactComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmergencyContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetEmergencyContact" message="tns:IClientService_GetEmergencyContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetEmergencyContactResponse" message="tns:IClientService_GetEmergencyContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmergencyContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateEmergencyContact" message="tns:IClientService_UpdateEmergencyContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateEmergencyContactResponse" message="tns:IClientService_UpdateEmergencyContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSideMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetSideMenu" message="tns:IClientService_GetSideMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetSideMenuResponse" message="tns:IClientService_GetSideMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddComment" message="tns:IClientService_AddComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddCommentResponse" message="tns:IClientService_AddComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateComment" message="tns:IClientService_UpdateComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateCommentResponse" message="tns:IClientService_UpdateComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/RemoveComment" message="tns:IClientService_RemoveComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/RemoveCommentResponse" message="tns:IClientService_RemoveComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetComment" message="tns:IClientService_GetComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetCommentResponse" message="tns:IClientService_GetComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentWithReplies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetCommentWithReplies" message="tns:IClientService_GetCommentWithReplies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetCommentWithRepliesResponse" message="tns:IClientService_GetCommentWithReplies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVitalsCommentListWithReplies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientVitalsCommentListWithReplies" message="tns:IClientService_GetClientVitalsCommentListWithReplies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientVitalsCommentListWithRepliesResponse" message="tns:IClientService_GetClientVitalsCommentListWithReplies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVitalsCommentListMeta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientVitalsCommentListMeta" message="tns:IClientService_GetClientVitalsCommentListMeta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientVitalsCommentListMetaResponse" message="tns:IClientService_GetClientVitalsCommentListMeta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentReplies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetCommentReplies" message="tns:IClientService_GetCommentReplies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetCommentRepliesResponse" message="tns:IClientService_GetCommentReplies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAttestation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientAttestation" message="tns:IClientService_GetClientAttestation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientAttestationResponse" message="tns:IClientService_GetClientAttestation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertClientAttestation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/InsertClientAttestation" message="tns:IClientService_InsertClientAttestation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/InsertClientAttestationResponse" message="tns:IClientService_InsertClientAttestation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAttestation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateClientAttestation" message="tns:IClientService_UpdateClientAttestation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateClientAttestationResponse" message="tns:IClientService_UpdateClientAttestation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmClientAttestation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/ConfirmClientAttestation" message="tns:IClientService_ConfirmClientAttestation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/ConfirmClientAttestationResponse" message="tns:IClientService_ConfirmClientAttestation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IClientService" type="tns:IClientService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IClientService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClientActivityLogList">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientActivityLogList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppearance">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetAppearance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppearance">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateAppearance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDistinguishingFeature">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetListDistinguishingFeature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDistinguishingFeature">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/RemoveDistinguishingFeature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDistinguishingFeature">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AddDistinguishingFeature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientSearchResults">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientSearchResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVitals">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetVitals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVitalsHistoryList">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientVitalsHistoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReadOnlyVitals">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetReadOnlyVitals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetROVFromFileNumber">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetROVFromFileNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetROVFromClientIDList">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetROVFromClientIDList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetROVByPersonID">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetROVByPersonID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMultipleClientsWithFileNumber">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/IsMultipleClientsWithFileNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListReadOnlyVitals">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetListReadOnlyVitals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVitals">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertVitals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVitals">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateVitals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVitals">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/RemoveVitals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckHousingValidity">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/CheckHousingValidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientHousingHistory">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientHousingHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHousingHistory">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertHousingHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientHousingDetail">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientHousingDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditClientHousingHistory">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/EditClientHousingHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientHousing">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/DeleteClientHousing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryAroundDate">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetHistoryAroundDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListClientHouses">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetListClientHouses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAddress">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressByID">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetAddressByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAddress">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/RemoveAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCreateFamilyEligibility">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/CheckCreateFamilyEligibility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFamilyEligibility">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/CheckFamilyEligibility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditFamilyMember">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/EditFamilyMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewMember">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertNewMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMember">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyHeader">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetFamilyHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsCurrentFamilyInfo">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientsCurrentFamilyInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientFamily">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientFamily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientFamilies">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientFamilies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPotentialFamilyMembers">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/FindPotentialFamilyMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPotentialFamilies">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/FindPotentialFamilies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyMembers">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetFamilyMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyMember">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetFamilyMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewFamilyMember">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetNewFamilyMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFamilyMember">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateFamilyMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFamily">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/CreateFamily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminateGroupMembership">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/TerminateGroupMembership" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminatePeopleGroupMembership">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/TerminatePeopleGroupMembership" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsInHouseholdFamilyMembers">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientsInHouseholdFamilyMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientWithFamily">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientWithFamily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientMembersInHouseholdListClientIDs">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientMembersInHouseholdListClientIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientsInHouseholdFamilyMembersList">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/ClientsInHouseholdFamilyMembersList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFamilyHeadsWithActiveConsentList">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetFamilyHeadsWithActiveConsentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetListVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/RemoveVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListEmergencyContacts">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetListEmergencyContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEmergencyContact">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/RemoveEmergencyContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmergencyContact">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertEmergencyContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeListClientEmergencyContacts">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GeListClientEmergencyContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListEmergencyContactComments">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetListEmergencyContactComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmergencyContactComment">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertEmergencyContactComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmergencyContact">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetEmergencyContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmergencyContact">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateEmergencyContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSideMenu">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetSideMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AddComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateComment">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveComment">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/RemoveComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComment">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentWithReplies">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetCommentWithReplies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVitalsCommentListWithReplies">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientVitalsCommentListWithReplies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVitalsCommentListMeta">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientVitalsCommentListMeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentReplies">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetCommentReplies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAttestation">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/GetClientAttestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertClientAttestation">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/InsertClientAttestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAttestation">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UpdateClientAttestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmClientAttestation">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/ConfirmClientAttestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientService">
+    <wsdl:port name="WSHttpBinding_IClientService" binding="tns:WSHttpBinding_IClientService">
+      <soap12:address location="https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://demo.hifis.ca/Domain/HIFIS.DOMAIN.BusinessServices.ClientService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

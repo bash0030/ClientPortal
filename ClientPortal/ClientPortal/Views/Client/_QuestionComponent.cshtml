@@ -1,0 +1,111 @@
+﻿@using ClientPortal.Models;
+@using Newtonsoft.Json;
+@using System.Reflection;
+@using System.Linq.Expressions;
+
+@model ClientPortal.Models.QuestionModel
+
+@{
+    TempData["Model"] = JsonConvert.SerializeObject(Model);
+
+    bool hasQuestions = Model.Questions != null && Model.Questions.ToArray().Length > 0;
+    ViewBag.Next = Model.IsLastQuestion ? "REVIEW" : "NEXT";
+
+    if (hasQuestions)
+    {
+        var questions = Model.Questions;
+        var question = questions.ElementAt(0);
+
+        ViewBag.Label = question.UserInputDefinition.Label ?? new string[] { "" };
+        ViewBag.Type = question.UserInputDefinition.Type ?? "";
+        ViewBag.QuestionText = question.QuestionText ?? "";
+        ViewBag.HelpInfo = question.HelpInfo;
+        ViewBag.Model = question.UserInputDefinition.Model;
+        ViewBag.Options = question.UserInputDefinition.Options;
+        ViewBag.Required = question.UserInputDefinition.Required;
+        ViewBag.Tooltip = question.UserInputDefinition.Tooltip;
+        ViewBag.InputType = question.UserInputDefinition.InputType;
+
+        ViewBag.Questions = questions;
+    }
+}
+
+<div class="d-flex flex-column justify-content-center question">
+    @using (Html.BeginForm(Model.CurrentQuestion, "Client", FormMethod.Post, new { @class = "form-group mb-3", @id = "question_form" }))
+    {
+        <p class="h2 mb-5">@ViewBag.QuestionText
+        
+            @if (ViewBag.HelpInfo != null)
+            {
+                <sup>
+                    <small>
+                        <span class="fa fa-question-circle tooltip-icon" data-toggle="tooltip" data-placement="top" title="@ViewBag.HelpInfo"></span>
+                    </small>
+                </sup>
+            }
+
+        </p>
+
+        @Html.Partial("__Input__", Model)
+
+        if (ViewBag.Questions != null)
+        {
+            int index = 0;
+            foreach (Question question in ViewBag.Questions)
+            {
+                if (index > 0)
+                {
+                    ViewBag.Label = question.UserInputDefinition.Label ?? new string[] { "" };
+                    ViewBag.Type = question.UserInputDefinition.Type ?? "";
+                    ViewBag.QuestionText = question.QuestionText ?? "";
+                    ViewBag.HelpInfo = question.HelpInfo;
+                    ViewBag.Model = question.UserInputDefinition.Model;
+                    ViewBag.Options = question.UserInputDefinition.Options;
+                    ViewBag.Required = question.UserInputDefinition.Required;
+                    ViewBag.Tooltip = question.UserInputDefinition.Tooltip;
+                    ViewBag.InputType = question.UserInputDefinition.InputType;
+
+                    var id = "_q" + index;
+
+                    <div id=@id style="display: none;" class="mt-5">
+                        <p class="h3 mb-3">@ViewBag.QuestionText
+                            
+                            @if (ViewBag.HelpInfo != null)
+                            {
+                                <sup>
+                                    <small>
+                                        <span class="fa fa-question-circle tooltip-icon" data-toggle="tooltip" data-placement="top" title="@ViewBag.HelpInfo"></span>
+                                    </small>
+                                </sup>
+                            }
+
+                        </p>
+                        @Html.Partial("__Input__", Model)
+                    </div>
+                }
+                index++;
+            }
+        }
+
+        <div class="mt-5 pt-5 row">
+            <div class="col d-flex flex-row justify-content-start">
+                @if (Model.PreviousQuestion != null)
+                {
+                    @Html.ActionLink("BACK", Model.PreviousQuestion, "Client", new { @class = "btn hifis-secondary", @id = "back_btn" });
+                }
+            </div>
+
+            <div class="col d-flex flex-row justify-content-center">
+                @Html.ActionLink("CANCEL", "Index", "Home", null, new { @class = "btn hifis-secondary ml-auto mr-auto", @id = "cancelBtn" })
+            </div>
+
+            <div class="col d-flex flex-row justify-content-end">
+                @if (Model.NextQuestion != null)
+                {
+                    <input id="submitBtn" type="submit" value=@ViewBag.Next class="btn hifis-primary" disabled />
+                }
+            </div>
+        </div>
+
+    }
+</div>
